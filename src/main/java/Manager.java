@@ -16,11 +16,13 @@ public class Manager extends Employee implements IManager {
     @Override
     public void addWorker(Worker worker) {
         workerList.add(worker);
+        worker.setManager(this);
     }
 
     @Override
     public void removeWorker(Worker worker) {
         workerList.remove(worker);
+        worker.setManager(null);
     }
 
 

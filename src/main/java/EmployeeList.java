@@ -29,6 +29,9 @@ public class EmployeeList {
             removeEmployee(employee);
             addEmployee(new Manager(employee.getFullName(), employee.getBirthDate(), employee.getEmploymentDate()));
         } else if (employee instanceof Manager) {
+            for (Worker worker : ((Manager) employee).getWorkerList()) {
+                worker.setManager(null);
+            }
             removeEmployee(employee);
             addEmployee(new OtherEmployee(employee.getFullName(), employee.getBirthDate(), employee.getEmploymentDate(), "some desc"));
         }
